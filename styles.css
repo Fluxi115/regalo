@@ -3,13 +3,24 @@ body, html {
   margin: 0; padding: 0;
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff;
+  background: 
+    radial-gradient(circle at 20% 80%, #ff6b9d 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, #c44569 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, #f8b500 0%, transparent 50%),
+    linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
   color: #000;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation: backgroundShift 8s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundShift {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  100% { filter: hue-rotate(30deg) brightness(1.1); }
 }
 
 #start-button {
@@ -42,11 +53,44 @@ body, html {
 }
 
 header {
-  background-color: #000;
+  background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500, #667eea);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite, fadeInDown 2s ease;
   color: #fff;
   padding: 30px 20px;
-  animation: fadeInDown 2s ease;
   margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+header:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="20">🎉</text></svg>'), 
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="15">🎂</text></svg>'),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="18">🎁</text></svg>');
+  background-size: 80px 80px, 60px 60px, 70px 70px;
+  background-position: 10% 20%, 90% 80%, 80% 30%;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  animation: floatEmojis 6s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatEmojis {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
 }
 h1 {
   font-size: 2.5rem;
@@ -64,17 +108,66 @@ p {
 }
 .iconos {
   margin-top: 20px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   animation: bounce 2s infinite;
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 .iconos span {
-  margin: 0 10px;
+  margin: 0 8px;
   display: inline-block;
   transform-origin: center;
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
 }
 .iconos span:hover {
-  transform: scale(1.4) rotate(10deg);
+  transform: scale(1.6) rotate(15deg);
+  filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.4));
+}
+
+/* Emojis flotantes decorativos */
+.floating-emojis {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: float var(--duration, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0.7;
+}
+
+.floating-emoji:nth-child(1) { left: 10%; top: 20%; }
+.floating-emoji:nth-child(2) { left: 85%; top: 15%; }
+.floating-emoji:nth-child(3) { left: 75%; top: 70%; }
+.floating-emoji:nth-child(4) { left: 15%; top: 80%; }
+.floating-emoji:nth-child(5) { left: 50%; top: 10%; }
+.floating-emoji:nth-child(6) { left: 90%; top: 60%; }
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% { 
+    transform: translateY(-20px) rotate(5deg) scale(1.1);
+  }
+  50% { 
+    transform: translateY(-30px) rotate(-3deg) scale(0.9);
+  }
+  75% { 
+    transform: translateY(-15px) rotate(3deg) scale(1.05);
+  }
 }
 footer {
   margin-top: 40px;
@@ -104,6 +197,181 @@ footer {
 .galeria img:hover {
   transform: scale(1.1) rotate(-1deg);
   filter: brightness(1.1);
+}
+
+/* Botón de la carta */
+.carta-container {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.carta-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+  transition: all 0.3s ease;
+  animation: bounce-carta 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.carta-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(255, 107, 107, 0.6);
+  animation: none;
+}
+
+.carta-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.carta-btn:hover:before {
+  left: 100%;
+}
+
+/* Modal de la carta */
+.carta-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
+}
+
+.carta-content {
+  position: relative;
+  margin: 3% auto;
+  padding: 20px;
+  width: 95%;
+  max-width: 700px;
+  animation: carta-open 0.8s ease;
+}
+
+.carta-paper {
+  background: linear-gradient(135deg, #ffffff, #fffef7);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  position: relative;
+  border: 3px solid #c9a876;
+  min-height: 500px;
+}
+
+.carta-paper:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #daa520,
+    #daa520 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.close-carta {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #8b4513;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-carta:hover {
+  color: #ff6b6b;
+  background: rgba(255,255,255,1);
+  transform: scale(1.1);
+}
+
+.carta-paper h2 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 2px solid #c9a876;
+  padding-bottom: 20px;
+}
+
+.carta-text {
+  color: #2c3e50;
+  line-height: 2;
+  font-family: 'Georgia', serif;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+
+.carta-text p {
+  margin-bottom: 25px;
+  text-indent: 30px;
+}
+
+.firma {
+  text-align: right;
+  font-style: italic;
+  margin-top: 50px !important;
+  color: #8b4513;
+  font-size: 1.4rem;
+  border-top: 1px solid #c9a876;
+  padding-top: 20px;
+}
+
+/* Animaciones */
+@keyframes bounce-carta {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes carta-open {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 /* Animaciones */

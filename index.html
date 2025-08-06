@@ -21,7 +21,7 @@
   <!-- Contenido principal -->
   <div id="main-content">
     <header>
-      <h1>¡Feliz Cumpleaños, Yessica Alejandra!</h1>
+      <h1>¡Feliz Cumpleaños, Yessica!</h1>
       <p>Hoy celebramos tus 29 años con mucho cariño 🖤</p>
     </header>
 
@@ -35,13 +35,39 @@
       <span>🌽</span>
       <span>🥣</span>
       <span>🥤</span>
+      <span>🎂</span>
+      <span>🎉</span>
+      <span>🎁</span>
+      <span>🌟</span>
+      <span>💕</span>
+      <span>🎈</span>
+      <span>🍰</span>
+    </div>
+
+    <!-- Emojis flotantes decorativos -->
+    <div class="floating-emojis">
+      <span class="floating-emoji" style="--delay: 0s; --duration: 3s;">🎈</span>
+      <span class="floating-emoji" style="--delay: 0.5s; --duration: 4s;">🎉</span>
+      <span class="floating-emoji" style="--delay: 1s; --duration: 3.5s;">⭐</span>
+      <span class="floating-emoji" style="--delay: 1.5s; --duration: 4.5s;">🎂</span>
+      <span class="floating-emoji" style="--delay: 2s; --duration: 3.2s;">💖</span>
+      <span class="floating-emoji" style="--delay: 2.5s; --duration: 4.2s;">🎁</span>
     </div>
 
     <section class="galeria" aria-label="Galería de fotos de Yessica">
-      <img src="foto1.jpg" alt="Foto de Yessica 1" />
-      <img src="foto2.jpg" alt="Foto de Yessica 2" />
-      <img src="foto3.jpg" alt="Foto de Yessica 3" />
+      <img src="foto/foto1.jpeg" alt="Foto de Yessica 1" />
+      <img src="foto/foto2.jpeg" alt="Foto de Yessica 2" />
+      <img src="foto/foto3.jpeg" alt="Foto de Yessica 3" />
+      <img src="foto/foto4.jpeg" alt="Foto de Yessica 4" />
+      <img src="foto/foto5.jpeg" alt="Foto de Yessica 5" />
     </section>
+
+    <!-- Botón para abrir la carta -->
+    <div class="carta-container">
+      <button id="open-carta-btn" class="carta-btn" aria-label="Abrir carta especial">
+        💌 Abrir Carta Especial 💌
+      </button>
+    </div>
 
     <footer>
       Hecho con cariño por su mejor amigo 🖤<br />
@@ -49,8 +75,30 @@
     </footer>
   </div>
 
+  <!-- Modal de la carta -->
+  <div id="carta-modal" class="carta-modal">
+    <div class="carta-content">
+      <span class="close-carta">&times;</span>
+      <div class="carta-paper">
+        <h2>Querida Yessica Alejandra 💕</h2>
+        <div class="carta-text">
+          <p>En este día tan especial, quiero que sepas lo importante que eres en mi vida.</p>
+          
+          <p>Tus 29 años representan no solo el tiempo que has estado en este mundo, sino también todos los momentos increíbles que hemos compartido juntos.</p>
+          
+          <p>Cada sonrisa tuya ilumina mi día, cada aventura contigo se convierte en un recuerdo invaluable, y cada conversación que tenemos me recuerda lo afortunado que soy de tenerte como amiga.</p>
+          
+          <p>Espero que este nuevo año de vida te traiga todo lo que tu corazón desea: más risas, más sueños cumplidos, y por supuesto, más momentos juntos llenos de diversión.</p>
+          
+          <p>Gracias por ser esa persona especial que siempre está ahí, por tus ocurrencias, por tu forma única de ver la vida, y por permitirme ser parte de tu historia.</p>
+          
+          <p class="firma">Con todo mi cariño,<br />
+          <strong>Tu mejor amigo 🖤</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
-</body>
-</html>>  <script src="script.js"></script>
 </body>
 </html>
