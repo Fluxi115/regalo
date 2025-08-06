@@ -11,11 +11,11 @@
   <!-- Botón para empezar -->
   <button id="start-button" aria-label="Iniciar con mapache">🦝</button>
 
-  <!-- Video de carga -->
-  <video id="loader-video" controls playsinline>
-    <source src="video/video-loader.mp4" type="video/mp4" />
-    Tu navegador no soporta video.
-  </video>
+  <!-- Audio para la canción de fondo -->
+  <audio id="background-music" preload="auto">
+    <source src="audio/musica.mp3" type="audio/mpeg" />
+    Tu navegador no soporta audio.
+  </audio>
 
 
   <!-- Contenido principal -->
@@ -55,11 +55,30 @@
     </div>
 
     <section class="galeria" aria-label="Galería de fotos de Yessica">
-      <img src="foto/foto1.jpeg" alt="Foto de Yessica 1" />
-      <img src="foto/foto2.jpeg" alt="Foto de Yessica 2" />
-      <img src="foto/foto3.jpeg" alt="Foto de Yessica 3" />
-      <img src="foto/foto4.jpeg" alt="Foto de Yessica 4" />
-      <img src="foto/foto5.jpeg" alt="Foto de Yessica 5" />
+      <div class="foto-container">
+        <img src="foto/foto1.jpeg" alt="Foto de Yessica 1" />
+        <p class="mensaje-foto">¡Eres la mejor amiga que alguien podría tener! 💕</p>
+      </div>
+      
+      <div class="foto-container">
+        <img src="foto/foto2.jpeg" alt="Foto de Yessica 2" />
+        <p class="mensaje-foto">Cada momento contigo es de risa 🦝</p>
+      </div>
+      
+      <div class="foto-container">
+        <img src="foto/foto3.jpeg" alt="Foto de Yessica 3" />
+        <p class="mensaje-foto">TA pesar de nuestras fierencias estamos alli 🌟</p>
+      </div>
+      
+      <div class="foto-container">
+        <img src="foto/foto4.jpeg" alt="Foto de Yessica 4" />
+        <p class="mensaje-foto">Gracias por ser tan especial en mi vida 🖤</p>
+      </div>
+      
+      <div class="foto-container">
+        <img src="foto/foto5.jpeg" alt="Foto de Yessica 5" />
+        <p class="mensaje-foto">¡Que cumplas muchos años más, babosa! 🎂🎉</p>
+      </div>
     </section>
 
     <!-- Botón para abrir la carta -->
@@ -80,7 +99,7 @@
     <div class="carta-content">
       <span class="close-carta">&times;</span>
       <div class="carta-paper">
-        <h2>Querida Yessica Alejandra 💕</h2>
+        <h2>Hola babosa💕</h2>
         <div class="carta-text">
           <p>Hola babosa hoy es un día especial pa ti, como los niños del teleton :3, quiero que sepas lo importante que eres en mi vida.</p>
           
@@ -93,6 +112,15 @@
           <p>Gracias por ser esa persona especial que siempre está ahí, por tus ocurrencias, por tu forma única de ver la vida, y por permitirme ser parte de tu historia.</p>
 
           <p>A ver muevete we no le wa a decir a nadie yo soy tu amigo muevete we</p>
+          
+          <!-- Video especial dentro de la carta -->
+          <div class="video-carta-container">
+            <button id="play-video-btn" class="video-btn">🎬 Ver Video Especial 🎬</button>
+            <video id="carta-video" controls playsinline style="display: none; width: 100%; max-width: 400px; margin: 20px auto; border-radius: 10px;">
+              <source src="video/video-loader.mp4" type="video/mp4" />
+              Tu navegador no soporta video.
+            </video>
+          </div>
           
           <p class="firma">Con todo mi cariño,<br />
           <strong>El wiwichu 🖤</strong></p>
